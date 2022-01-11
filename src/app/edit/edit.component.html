@@ -1,0 +1,44 @@
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="registerForm" (ngSubmit)="submit()">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label for="heroname">Hero Name</mat-label>
+          <input formControlName="heroname"
+          type="text"
+          minlength="6"
+          id="heroname"
+          required
+          matInput placeholder="hero.name">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label for="series">Series</mat-label>
+          <input formControlName="series"
+          type="text"
+          minlength="6"
+          id="series"
+          required
+          matInput placeholder="hero.series">
+        </mat-form-field>
+      </div>
+      <mat-form-field appearance="fill">
+        <mat-label for="info">Textarea</mat-label>
+        <textarea matInput
+        required
+        formControlName="info" placeholder="hero.info"
+        id="info"></textarea>
+      </mat-form-field>
+    </form>       
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close class="btn btn-secondary" (click)="goBack()">Cancel</button>
+    <div class="text-center">
+      <button mat-button
+        type="submit" (click)="submit()"
+        class="btn btn-secondary"
+      >
+        submit
+      </button>
+    </div>
+  </mat-dialog-actions>
