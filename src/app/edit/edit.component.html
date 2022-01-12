@@ -1,44 +1,37 @@
-<mat-dialog-content class="mat-typography">
-    <form [formGroup]="registerForm" (ngSubmit)="submit()">
-      <div>
-        <mat-form-field appearance="fill">
-          <mat-label for="heroname">Hero Name</mat-label>
-          <input formControlName="heroname"
-          type="text"
-          minlength="6"
-          id="heroname"
-          required
-          matInput placeholder="hero.name">
-        </mat-form-field>
+<app-nav></app-nav>
+<div class="contianer">
+   <div class="row justify-content-center my-5">
+      <div class="col-lg-6">
+         <app-topbar></app-topbar>
+         <mat-card *ngIf="hero">
+            <mat-card-title>
+               <h2>{{hero.name | uppercase}} Details</h2>
+            </mat-card-title>
+            <mat-card-subtitle>
+               <div><span>Id: </span>{{hero.id}}</div>
+            </mat-card-subtitle>
+            <mat-card-content>
+              <div class="form-outline mb-4">
+                  <label class="form-label" for="hero-name">HeroName</label>
+                  <input id="hero-name" type="text" [(ngModel)]="hero.name"class="form-control color"/>
+              </div>
+              <div class="form-outline mb-4">
+                <label class="form-label" for="series">Series</label>
+                <input id="series" type="text" [(ngModel)]="hero.series" class="form-control color"/>
+              </div>
+              <div class="form-outline mb-4">
+                <label class="form-label" for="info">Info</label>
+                <textarea id="info" type="text" [(ngModel)]="hero.info" class="form-control color"></textarea>
+              </div>
+            </mat-card-content>     
+            <mat-card-actions>
+               <button mat-button mat-dialog-close class="btn btn-secondary" (click)="goBack()">Cancel</button>
+               <button mat-button type="submit" (click)="save()" class="btn btn-secondary">
+                   Save
+               </button>
+           </mat-card-actions>
+         </mat-card>   
       </div>
-      <div>
-        <mat-form-field appearance="fill">
-          <mat-label for="series">Series</mat-label>
-          <input formControlName="series"
-          type="text"
-          minlength="6"
-          id="series"
-          required
-          matInput placeholder="hero.series">
-        </mat-form-field>
-      </div>
-      <mat-form-field appearance="fill">
-        <mat-label for="info">Textarea</mat-label>
-        <textarea matInput
-        required
-        formControlName="info" placeholder="hero.info"
-        id="info"></textarea>
-      </mat-form-field>
-    </form>       
-</mat-dialog-content>
-<mat-dialog-actions>
-    <button mat-button mat-dialog-close class="btn btn-secondary" (click)="goBack()">Cancel</button>
-    <div class="text-center">
-      <button mat-button
-        type="submit" (click)="submit()"
-        class="btn btn-secondary"
-      >
-        submit
-      </button>
-    </div>
-  </mat-dialog-actions>
+   </div>
+</div>
+

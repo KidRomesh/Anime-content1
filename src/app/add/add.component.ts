@@ -24,9 +24,7 @@ export class AddComponent implements OnInit {
     
     console.log(this.registerForm.value);
     this.add(this.heroname?.value, this.series?.value, this.info?.value);
-    this.location.back()
-    this.router.navigate(['/home'])
-    this.registerForm.reset()
+    this.registerForm.reset();
   }
 
   
@@ -38,11 +36,10 @@ export class AddComponent implements OnInit {
     this.dbfetch.addHero({name, series, info} as Hero)
       .subscribe(hero=> {
         this.heroes.push(hero);
-        console.log("Iam from register", hero);
+        this.location.back();
+        console.log("Iam from register", hero);   
       });
   }
-
-
 
   ngOnInit(): void {
     

@@ -12,9 +12,11 @@
                     <p>{{hero.info}}</p>
                   </mat-card-content>
                   <mat-card-actions>
-                    <button mat-icon-button matTooltip="Edit"  (click)="Edit(hero)">
-                      <mat-icon>edit</mat-icon>
-                    </button>
+                    <a routerLink="/edit/{{hero.id}}">
+                      <button mat-icon-button matTooltip="Edit">
+                        <mat-icon>edit</mat-icon>
+                      </button>
+                    </a>
                     <button mat-icon-button matTooltip="Delete"  (click)="delete(hero)">
                       <mat-icon>delete_outline</mat-icon>
                     </button>

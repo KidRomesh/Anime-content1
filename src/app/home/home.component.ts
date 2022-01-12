@@ -1,11 +1,12 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { AddComponent } from '../add/add.component';
+import { EditComponent } from '../edit/edit.component';
 import { DbfetchService } from '../services/dbfetch.service';
 import { Hero } from '../services/hero';
-import { FormControl} from '@angular/forms';
-import { EditComponent } from '../edit/edit.component';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -14,9 +15,8 @@ import { EditComponent } from '../edit/edit.component';
 export class HomeComponent implements OnInit {
  
   heroes:Hero[]=[];
-  hero:Hero|undefined;
 
-  constructor( private series:DbfetchService, private dialog:MatDialog ) { }
+  constructor( private series:DbfetchService, private dialog:MatDialog , private router:Router) { }
 
   ngOnInit(): void {
     this.getHero();
@@ -43,15 +43,6 @@ export class HomeComponent implements OnInit {
     this.heroes = this.heroes.filter(h => h !== hero);
     this.series.deleteHero(hero.id).subscribe();
   }  
-  Edit(hero:Hero){
-    console.log(hero,"To be Edited....!");
-    const dialogRef = this.dialog.open(EditComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`)    
-    });
-  }
-
-
 }
 
 

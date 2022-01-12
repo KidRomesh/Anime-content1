@@ -78,7 +78,7 @@ export class DbfetchService {
       );
     }
     updateHero(hero: Hero): Observable<any> {
-      return this.http.patch(this.heroesUrl, hero, this.httpOptions)
+      return this.http.put(this.heroesUrl, hero, this.httpOptions)
       .pipe(
         tap(_ => this.log(`updated hero id=${hero.id}`)),
         catchError(this.handleError<any>('updateHero'))

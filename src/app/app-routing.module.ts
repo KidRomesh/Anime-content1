@@ -14,7 +14,7 @@ const routes: Routes = [
   {path:"add", component:AddComponent, pathMatch:"full"},
   {path:"nav", component:NavComponent, pathMatch:"full"},
   {path:"top", component:TopbarComponent, pathMatch:"full"},
-  {path:"edit/:name", component:EditComponent, pathMatch:"full"}
+  {path:"edit/:id", component:EditComponent, pathMatch:"full"}
 ];
 
 @NgModule({
