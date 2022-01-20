@@ -1,9 +1,7 @@
-import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AddComponent } from '../add/add.component';
-import { EditComponent } from '../edit/edit.component';
 import { DbfetchService } from '../services/dbfetch.service';
 import { Hero } from '../services/hero';
 
