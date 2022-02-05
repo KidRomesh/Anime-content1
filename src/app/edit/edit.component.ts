@@ -27,6 +27,7 @@ export class EditComponent implements OnInit {
 
   getHero(): void {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
+    console.log(id);
     this.dbfetch.getHero(id)
       .subscribe(hero => this.hero = hero);
   }
